@@ -68,6 +68,6 @@ for i=1:point_num
    else 
        plot(point(1),point(2),'or');
    end
-   
 end
+axis([0 10 0 100]);
 hold off
