@@ -1,4 +1,4 @@
-% logistic regression using batch gradient ascent
+% logistic regression using stochastic gradient ascent
 
 training_data=load('old_faithful_labeled_data.txt');
 
@@ -9,8 +9,8 @@ training_data(:,3)=training_data(:,3)-1;
 X0=ones(point_num,1);
 training_data=[X0 training_data];
 theta=zeros(1,data_dimension);
-theta_thres=0.03;
-alpha=0.01;
+theta_thres=0.001;
+alpha=0.001;
 while 1
     delta=zeros(1,data_dimension);
     for i=1:point_num
@@ -42,5 +42,6 @@ end
 % X1=linspace(0,6,60);
 % X2=-theta(1)/theta(3)-theta(2)/theta(3)*X1;
 % plot(X1,X2,'.');
+
 fplot(@(x)(-theta(1)/theta(3)-theta(2)/theta(3)*x),[0 6]);
 hold off
